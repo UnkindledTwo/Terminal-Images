@@ -2,6 +2,7 @@
 #include "Colors.h"
 #include <fstream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -16,7 +17,8 @@ int main(){
 
 	while(getline(fileToRead, line)){
 		wholeFile.append(line);
-	}
+	}   
+	wholeFile.erase(std::remove(wholeFile.begin(), wholeFile.end(), '\n'), wholeFile.end());
 	
 	for(int i = 0; i < wholeFile.length(); i+=2){
 		string toWriteBg;
