@@ -6,11 +6,17 @@
 
 using namespace std;
 
-int main(){
+
+int main(int argc, char **argv){
 	string fileStr;
-	cout << "Enter the path of the file you want to read" << endl;
-	cin >> fileStr;
-	cout << endl;
+	if(argc == 2){
+		fileStr = string(argv[1]);
+	}
+	else{
+		cout << "Enter the path of the file you want to read" << endl;
+		cin >> fileStr;
+		cout << endl;
+	}
 	string line;
 	string wholeFile = "";
 	ifstream fileToRead(fileStr);
