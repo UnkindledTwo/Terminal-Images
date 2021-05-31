@@ -48,5 +48,7 @@ private:
 
     QVector<QString> colorVector;
     QVector<QString> colorVectorString;
+
+    QVector<QWidget*> buttonList;
 };
 #endif // TIMGEDITOR_H

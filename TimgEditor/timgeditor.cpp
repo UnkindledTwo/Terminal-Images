@@ -29,12 +29,19 @@ void TimgEditor::on_actionStart_triggered()
     if(sd->exec()){
         gridHeight = sd->h;
         gridWidth = sd->w;
+
     }
+
+    for(int i = 0; i < buttonList.count(); i++){
+        buttonList.at(i)->deleteLater();
+    }
+
     for(int i = 0; i < gridHeight; i++){
         for(int j = 0; j < gridWidth-1; j++){
             EditorButton *b = new EditorButton(this, i ,j);
             connect(b, &EditorButton::buttonPressed, this, &TimgEditor::buttonPressed);
             ui->editorgrid->addWidget(b, i, j);
+            buttonList.append(b);
         }
     }
 }
